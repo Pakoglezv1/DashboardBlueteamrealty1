@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard de Ventas — Blue Team Realty</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-title">
+    <h1>Dashboard de Ventas</h1>
+    <p>Blue Team Realty</p>
+  </div>
+  <div class="topbar-controls">
+    <label for="mesSelect">Mes:</label>
+    <select id="mesSelect"></select>
+    <button id="btnRefrescar" title="Actualizar ahora">⟳ Actualizar</button>
+    <span id="ultimaActualizacion" class="ultima-act">—</span>
+  </div>
+</header>
+
+<main>
+  <div id="estadoCarga" class="estado-carga">Cargando datos desde Google Sheets…</div>
+  <div id="estadoError" class="estado-error" style="display:none"></div>
+
+  <section id="contenido" style="display:none">
+
+    <!-- ---------- TARJETAS GLOBALES ---------- -->
+    <div class="cards-grid">
+      <div class="card">
+        <p class="card-label">Leads Atendidos</p>
+        <p class="card-valor" id="totalLeads">0</p>
+      </div>
+      <div class="card">
+        <p class="card-label">Llamadas Agendadas</p>
+        <p class="card-valor" id="totalLlamadas">0</p>
+      </div>
+      <div class="card">
+        <p class="card-label">Visitas Agendadas</p>
+        <p class="card-valor" id="totalVisitas">0</p>
+      </div>
+      <div class="card">
+        <p class="card-label">Cotizaciones Enviadas</p>
+        <p class="card-valor" id="totalCotizaciones">0</p>
+      </div>
+      <div class="card destacada">
+        <p class="card-label">Rentas Cerradas</p>
+        <p class="card-valor" id="totalRentas">0</p>
+      </div>
+      <div class="card destacada">
+        <p class="card-label">Ventas Cerradas</p>
+        <p class="card-valor" id="totalVentas">0</p>
+      </div>
+    </div>
+
+    <!-- ---------- GRÁFICA POR AGENTE ---------- -->
+    <div class="panel">
+      <h2>Rentas y Ventas cerradas por agente</h2>
+      <canvas id="chartAgentes" height="90"></canvas>
+    </div>
+
+    <!-- ---------- TABLA DETALLE ---------- -->
+    <div class="panel">
+      <h2>Detalle por agente</h2>
+      <div class="tabla-wrap">
+        <table id="tablaAgentes">
+          <thead>
+            <tr>
+              <th>Agente</th>
+              <th>Leads</th>
+              <th>Llamadas</th>
+              <th>Visitas</th>
+              <th>Cotizaciones</th>
+              <th>Rentas</th>
+              <th>Ventas</th>
+            </tr>
+          </thead>
+          <tbody id="tablaAgentesBody"></tbody>
+          <tfoot>
+            <tr id="filaTotales">
+              <td>Total</td>
+              <td id="ftLeads">0</td>
+              <td id="ftLlamadas">0</td>
+              <td id="ftVisitas">0</td>
+              <td id="ftCotizaciones">0</td>
+              <td id="ftRentas">0</td>
+              <td id="ftVentas">0</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <p>Fuente: Google Sheets "Registro de Ventas - Blue Team Realty" · Se actualiza automáticamente cada minuto.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
