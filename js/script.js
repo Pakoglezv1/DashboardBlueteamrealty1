@@ -165,7 +165,14 @@ function renderTodo() {
     )
     .join("");
 
-  renderGrafica(porAgente);
+  // La gráfica se aísla en su propio try/catch: si Chart.js no carga por
+  // cualquier motivo, no debe tumbar el resto del dashboard ni disparar
+  // el mensaje de "no se pudo leer la hoja".
+  try {
+    renderGrafica(porAgente);
+  } catch (err) {
+    console.error("No se pudo dibujar la gráfica:", err);
+  }
 }
 
 function renderGrafica(porAgente) {
