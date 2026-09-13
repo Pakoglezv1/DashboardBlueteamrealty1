@@ -8,6 +8,9 @@ const CONFIG = {
   SHEET_ID: "11MfuU-R8fd4AMozsZW10PwOzfPJ9OFP1VzTmXMPf0Wg",
   GID: "0", // pestaña de la hoja (0 = la primera)
   REFRESH_INTERVAL_MS: 60000, // 1 minuto
+  // URL del "Publicar en la web" de Google Sheets (Archivo → Compartir → Publicar en la web).
+  // Cambia esta línea si vuelves a publicar la hoja o apuntas a otra.
+  SHEET_EMBED_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTjQjwVjCjN6XOFLojw-92EekWK6yNLeh2nNU7cmogT7Z2l6wj6WbmhTJDhbWffRlawV42ZPrX23hT7/pubhtml?widget=true&headers=false",
 };
 
 const COLUMNAS = {
@@ -191,6 +194,7 @@ function renderGrafica(porAgente) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("sheetEmbed").src = CONFIG.SHEET_EMBED_URL;
   cargarDatos();
   document.getElementById("btnRefrescar").addEventListener("click", cargarDatos);
   setInterval(cargarDatos, CONFIG.REFRESH_INTERVAL_MS);

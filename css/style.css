@@ -145,6 +145,13 @@ main {
 
 .tabla-wrap { overflow-x: auto; }
 
+.sheet-embed-wrap iframe {
+  width: 100%;
+  height: 620px;
+  border: 1px solid var(--grey-border);
+  border-radius: 8px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

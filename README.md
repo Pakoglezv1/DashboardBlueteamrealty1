@@ -62,12 +62,21 @@ const CONFIG = {
   SHEET_ID: "11MfuU-R8fd4AMozsZW10PwOzfPJ9OFP1VzTmXMPf0Wg",
   GID: "0",
   REFRESH_INTERVAL_MS: 60000,
+  SHEET_EMBED_URL: "https://docs.google.com/spreadsheets/d/e/.../pubhtml?widget=true&headers=false",
 };
 ```
 
 `SHEET_ID` es la parte de la URL de la hoja entre `/d/` y `/edit`. `GID` es el número
-de la pestaña (0 es la primera). Si mueves los datos a otra hoja, solo cambia esos
-dos valores.
+de la pestaña (0 es la primera). `SHEET_EMBED_URL` es la liga que genera Google al
+hacer Archivo → Compartir → Publicar en la web (la que se ve embebida al final del
+dashboard, mostrando la hoja completa). Si mueves los datos a otra hoja, o vuelves a
+publicarla, actualiza los tres valores aquí.
+
+**Nota de privacidad:** "Publicar en la web" hace la hoja visible para cualquiera que
+tenga esa URL, sin necesidad de haberla compartido antes — es más abierto que el
+permiso de "Cualquier persona con el enlace: Lector". Si los datos de ventas no deben
+ser 100% públicos, vale la pena tenerlo en cuenta antes de publicar el dashboard en un
+dominio público.
 
 ## Limitaciones a tener en cuenta
 
